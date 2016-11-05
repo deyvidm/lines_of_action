@@ -51,53 +51,55 @@ class Tile
 	
 	def neighbours(board)
 		neighbours = []
-
-		#north_west		
-		if @row-1 >= 0 && @column-1 >= 0
-			if piece.team == board[@row-1][@column-1].piece().team
-				neighbours.push(board[@row-1][@column-1])
+		
+		if has_piece()
+			#north_west		
+			if @row-1 >= 0 && @column-1 >= 0
+				if @space.team == board[@row-1][@column-1].piece().team
+					neighbours.push(board[@row-1][@column-1])
+				end
 			end
-		end
-		#north
-		if @row-1 >= 0 
-			if piece.team == board[@row-1][@column].piece().team
-				neighbours.push(board[@row-1][@column])
+			#north
+			if @row-1 >= 0 
+				if @space.team == board[@row-1][@column].piece().team
+					neighbours.push(board[@row-1][@column])
+				end
 			end
-		end
-		#north_east
-		if @row-1 >= 0 && @column+1 <= 7
-			if piece.team == board[@row-1][@column+1].piece().team
-				neighbours.push(board[@row-1][@column+1])
+			#north_east
+			if @row-1 >= 0 && @column+1 <= 7
+				if @space.team == board[@row-1][@column+1].piece().team
+					neighbours.push(board[@row-1][@column+1])
+				end
 			end
-		end
-		#west
-		if column-1 >= 0
-			if piece.team == board[@row][@column-1].piece().team
-				neighbours.push(board[@row][@column-1])
+			#west
+			if column-1 >= 0
+				if @space.team == board[@row][@column-1].piece().team
+					neighbours.push(board[@row][@column-1])
+				end
 			end
-		end
-		#east
-		if column+1 <= 7
-			if piece.team == board[@row][@column+1].piece().team
-				neighbours.push(board[@row][@column+1])
+			#east
+			if column+1 <= 7
+				if @space.team == board[@row][@column+1].piece().team
+					neighbours.push(board[@row][@column+1])
+				end
 			end
-		end
-		#south_west
-		if row+1 <= 7 && column-1 >= 0
-			if piece.team == board[@row+1][@column-1].piece().team
-				neighbours.push(board[@row+1][@column-1])
+			#south_west
+			if row+1 <= 7 && column-1 >= 0
+				if @space.team == board[@row+1][@column-1].piece().team
+					neighbours.push(board[@row+1][@column-1])
+				end
 			end
-		end
-		#south
-		if row+1 <= 7
-			if piece.team == board[@row+1][@column].piece().team
-				neighbours.push(board[@row+1][@column])
+			#south
+			if row+1 <= 7
+				if @space.team == board[@row+1][@column].piece().team
+					neighbours.push(board[@row+1][@column])
+				end
 			end
-		end
-		#south_east
-		if row+1 <= 7 && column+1 <= 7
-			if piece.team == board[@row+1][@column+1].piece().team
-				neighbours.push(board[@row+1][@column+1])
+			#south_east
+			if row+1 <= 7 && column+1 <= 7
+				if @space.team == board[@row+1][@column+1].piece().team
+					neighbours.push(board[@row+1][@column+1])
+				end
 			end
 		end
 		neighbours

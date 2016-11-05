@@ -27,14 +27,16 @@ class BoardGame
 			lines_array[row]
 		when :left_diagonal
 			lines_array.reverse[row - column + 7]
+		when :right_diagonal
+			lines_array.reverse[row + column]
 		end	 
 	end
 
-	def update_piece_counts
+	def update_piece_counts()
 			@line_lookup[:vertical] = vertical_lines_count()
 			@line_lookup[:horizontal] = horizontal_lines_count()	
 			@line_lookup[:left_diagonal] = left_diagonal_lines_count()
-			#TODO: right_diagonal
+			@line_lookup[:right_diagonal] = right_diagonal_lines_count()
 	end
 
 
@@ -65,12 +67,33 @@ class BoardGame
 		libes_count
 	end
 
+	def right_diagonal_lines_count()
+		lines_count = []
+		ib = tiles_to_integer()
+		lines_count.push(ib[0][0])
+		lines_count.push(ib[0][1]+ib[1][0])
+		lines_count.push(ib[0][2]+ib[1][1]+ib[2][0])
+		lines_count.push(ib[0][3]+ib[1][2]+ib[2][1]+ib[3][0])
+		lines_count.push(ib[0][4]+ib[1][3]+ib[2][2]+ib[3][1]+ib[4][0])
+		lines_count.push(ib[0][5]+ib[1][4]+ib[2][3]+ib[3][2]+ib[4][1]+ib[5][0])
+		lines_count.push(ib[0][6]+ib[1][5]+ib[2][4]+ib[3][3]+ib[4][2]+ib[5][1]+ib[6][0])
+		lines_count.push(ib[0][7]+ib[1][6]+ib[2][5]+ib[3][4]+ib[4][3]+ib[5][2]+ib[6][1]+ib[7][0])
+		lines_count.push(ib[1][7]+ib[2][6]+ib[3][5]+ib[4][4]+ib[5][3]+ib[6][2]+ib[7][1])
+		lines_count.push(ib[2][7]+ib[3][6]+ib[4][5]+ib[5][4]+ib[6][3]+ib[7][2])
+		lines_count.push(ib[3][7]+ib[4][6]+ib[5][5]+ib[6][4]+ib[7][3])
+		lines_count.push(ib[4][7]+ib[5][6]+ib[6][5]+ib[7][4])
+		lines_count.push(ib[5][7]+ib[6][6]+ib[7][5])
+		lines_count.push(ib[6][7]+ib[7][6])
+		lines_count.push(ib[7][7])
+		libes_count
+	end
+
 
 	def tiles_to_integer
 		integer_board = [][]
 		for i,j in 0..7
 			if board[i][j].has_piece()
-			integer_board[i][j] = 1
+				integer_board[i][j] = 1
 			else integer_board[i][j] = 0
 			end
 		end
