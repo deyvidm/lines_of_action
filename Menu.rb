@@ -15,9 +15,9 @@ class Menu
   end
 
   def display
-    puts name
-    puts "-" * name.length
-    puts description
+    puts @name
+    puts "-" * @name.length
+    puts @description
 
     @options.each {|o| o.display}
   end  

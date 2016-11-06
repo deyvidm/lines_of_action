@@ -9,12 +9,12 @@ class Player
 
   def take_turn(game_menu)
     game_menu.display()
-    code = ''
-
-    print game_menu.prompt
-    code = handle_input(gets)
+    code = -1
+    while code == -1 do 
       print game_menu.prompt
-  end
+      code = game_menu.handle_input(gets)
+    end
+ end
 
   def move_piece(from,to)
     to.place_piece(from.piece)

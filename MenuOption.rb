@@ -7,7 +7,7 @@ class MenuOption
   end
 
   def display() 
-    puts name + " -- " + command
+    puts @name + " -- " + @command
   end
 
   def matches(user_input)

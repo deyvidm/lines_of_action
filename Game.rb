@@ -27,7 +27,7 @@ class Game
   end
 
   def play_turn()
-  	self.active_player().take_turn()
+  	self.active_player().take_turn(@game_menu)
   end
   
   def game_over()
