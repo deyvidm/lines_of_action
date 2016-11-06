@@ -49,6 +49,7 @@ class Tile
 			@space.draw()
 		else
 			return '_'
+    end
 	end
 
 	private
