@@ -1,7 +1,6 @@
 require './MenuAction'
 
-class MoveAction < MenuAction 
-  @game
+class DisplayBoardAction < MenuAction 
   def initialize(game)
     @game = game
   end
@@ -10,3 +9,4 @@ class MoveAction < MenuAction
     tile = @game.gameBoard[row_index][col_index]
     return tile.hasPiece()
   end
+end

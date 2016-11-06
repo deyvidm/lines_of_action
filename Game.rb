@@ -1,9 +1,9 @@
-require DisplayBoardAction
-require GameBoard
-require MenuOption
-require MoveAction
-require Player 
-require QuitAction
+require './DisplayBoardAction'
+require './GameBoard'
+require './MenuOption'
+require './MoveAction'
+require './Player'
+require './QuitAction'
 
 class Game 
   def initialize(p1, p2)

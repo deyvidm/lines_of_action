@@ -1,4 +1,7 @@
-class BoardGame
+require './Tile'
+require './Piece'
+
+class GameBoard
 
 	def initialize()
 		@board = [7][7]

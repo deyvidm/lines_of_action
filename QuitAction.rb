@@ -1,3 +1,5 @@
+require './MenuAction'
+
 class QuitAction < MenuAction
   def activate()
     return 0

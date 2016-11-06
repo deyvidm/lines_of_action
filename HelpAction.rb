@@ -1,3 +1,4 @@
+require './MenuAction'
 class HelpAction < MenuAction
   def activate
     return 1

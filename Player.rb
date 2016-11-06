@@ -1,3 +1,6 @@
+require './Menu'
+require './Tile'
+
 class Player
   def initialize(name)
     @name = name
