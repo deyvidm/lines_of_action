@@ -27,15 +27,16 @@ class Game
   def game_over()
   	first = nil
 	  board.each do |row|
-		index = row.index do |tile|
-			tile.has_piece() && tile.piece().team == turn
-		end
-		if index
-			first = row[index]
-			break
-		end
-	end
-	return first.connected(board) == players[turn].piece_count
+		  index = row.index do |tile|
+			  tile.has_piece() && tile.piece().team == turn
+		  end
+
+		  if index
+			  first = row[index]
+			  break
+		  end
+	  end
+	  return first.connected(board) == players[turn].piece_count
   end
 
 end

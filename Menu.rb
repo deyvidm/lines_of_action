@@ -2,7 +2,7 @@ class Menu
   @default_options = [MenuOption('Help', 'help', HelpAction()),
                       MenuOption('Quit', 'quit', QuitAction())]
   
-  def initialize(name, description, prompt = '>', options) 
+  def initialize(name, description, prompt = '>', options, prev_menu=nil) 
     @name = name
     @description = description
     @prompt = prompt.strip + " "
