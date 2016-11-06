@@ -26,7 +26,7 @@ class Menu
     return @prompt
   end
 
-  def handleInput(user_input)
+  def handle_input(user_input)
     tokens = user_input.split(' ')
     @options.each do |opt|
       if opt.matches(tokens[0])
