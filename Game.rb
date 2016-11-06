@@ -17,7 +17,7 @@ class Game
   end
 
   def active_player()
-  	return self.players[self.turn]
+  	return players[turn]
   end
 
   def play_turn()
@@ -26,7 +26,7 @@ class Game
   
   def game_over()
   	first = nil
-	game_board.each do |row|
+	  board.each do |row|
 		index = row.index do |tile|
 			tile.has_piece() && tile.piece().team == turn
 		end
@@ -35,7 +35,7 @@ class Game
 			break
 		end
 	end
-	return first.connected(game_board) == players[turn].piece_count
+	return first.connected(board) == players[turn].piece_count
   end
 
 end
