@@ -4,8 +4,8 @@ require './Piece'
 class GameBoard
 
 	def initialize()
-		@board = [7][7]
-		@line_lookup = Hash.new
+		@board = []
+    @line_lookup = Hash.new
 
 		#Initialize player 0
 		for i in 1..6
@@ -151,8 +151,4 @@ class GameBoard
 			:right_diagonal
 		end
 	end
-	
 end
-
-a = BoardGame.new
-

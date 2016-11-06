@@ -7,7 +7,7 @@ class Player
     @piece_count = 12
   end
 
-  def takeTurn(Menu game_menu)
+  def takeTurn(game_menu)
     game_menu.display()
     code = ''
 
@@ -16,10 +16,11 @@ class Player
       print game_menu.prompt
   end
 
-  def move_piece(Tile from, Tile to)
+  def move_piece(from,to)
     to.place_piece(from.piece)
   end
   
   def remove_piece
-    @piece_count--
+    @piece_count -= 1
+  end
 end

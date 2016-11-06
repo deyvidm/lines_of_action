@@ -5,5 +5,6 @@ class Piece
 
   def draw
     return ['O', 'X'][@team]
+  end
 end
 

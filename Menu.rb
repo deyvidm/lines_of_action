@@ -1,8 +1,12 @@
+require './MenuOption'
+require './HelpAction'
+require './QuitAction'
+
 class Menu
-  @default_options = [MenuOption('Help', 'help', HelpAction()),
-                      MenuOption('Quit', 'quit', QuitAction())]
+  @default_options = [MenuOption.new('Help', 'help', HelpAction.new),
+                      MenuOption.new('Quit', 'quit', QuitAction.new)]
   
-  def initialize(name, description, prompt = '>', options, prev_menu=nil) 
+  def initialize(name, description, prompt = '>', options, prev_menu) 
     @name = name
     @description = description
     @prompt = prompt.strip + " "
