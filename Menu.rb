@@ -2,9 +2,10 @@ class Menu
   @default_options = [MenuOption('Help', 'help', HelpAction()),
                       MenuOption('Quit', 'quit', QuitAction())]
   
-  def initialize(name, description, options) 
+  def initialize(name, description, prompt = '>', options) 
     @name = name
     @description = description
+    @prompt = prompt.strip + " "
     @options = default_options + options
   end
 
@@ -17,7 +18,7 @@ class Menu
   end  
   
   def prompt
-    return '> '
+    return @prompt
   end
 
   def handleInput(user_input)
@@ -25,11 +26,13 @@ class Menu
     @options.each do |opt|
       if opt.matches(tokens[0])
         code = option.activate_action(tokens[1])
-        if code == 0
+        if code == 1
           self.class.display
         else 
           return code
         end
+      else
+        return -1
       end
     end
   end
