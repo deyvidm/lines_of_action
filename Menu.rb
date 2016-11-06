@@ -30,12 +30,8 @@ class Menu
     tokens = user_input.split(' ')
     @options.each do |opt|
       if opt.matches(tokens[0])
-        code = option.activate_action(tokens[1])
-        if code == 1
-          self.class.display
-        else 
-          return code
-        end
+        code = opt.activate_action(tokens[1])
+        return code
       else
         return -1
       end
