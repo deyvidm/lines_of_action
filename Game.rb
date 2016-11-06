@@ -1,18 +1,24 @@
+require DisplayBoardAction
+require GameBoard
+require MenuOption
+require MoveAction
+require Player 
+require QuitAction
+
 class Game 
-  def initialize(Player p1, Player p2)
+  def initialize(p1, p2)
     @players = [p1,p2]
   end
 
   def setup()
   	@board = GameBoard.new()
   	@turn = 0
-  	@game_menu = Menu.new("Main menu", "Main menu for the lines of action game", ">", 
-  		[
+  	@game_menu = Menu.new("Main menu", "Main menu for the lines of action game", ">",
+      [
   			MenuOption.new("Move", "Move a piece", MoveAction.new(self)),
   			MenuOption.new("Display", "Display the board", DisplayBoardAction.new(self)),
   			MenuOption.new("Quit", "Quit the current game", QuitAction.new(self))
-  		]
-  		,nil)
+      ])
 
   end
 
@@ -40,3 +46,10 @@ class Game
   end
 
 end
+
+p1 = Player.new('player 1')
+p2 = Player.new('player 2')
+
+game = Game.new(Player.new('player 1'), Player.new('player 2'))
+game.setup
+game.play_turn
