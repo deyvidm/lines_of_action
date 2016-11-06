@@ -1,7 +1,7 @@
 class Player
-  @piece_count = 0
   def initialize(name)
     @name = name
+    @piece_count = 12
   end
 
   def takeTurn(Menu game_menu)
