@@ -13,17 +13,17 @@ class Game
   def setup()
   	@board = GameBoard.new()
   	@turn = 0
-  	@game_menu = Menu.new("Main menu", "Main menu for the lines of action game", ">",
+  	@game_menu = Menu.new("Main menu", "Main menu for the lines of action game",
       [
   			MenuOption.new("Move", "Move a piece", MoveAction.new(self)),
   			MenuOption.new("Display", "Display the board", DisplayBoardAction.new(self)),
-  			MenuOption.new("Quit", "Quit the current game", QuitAction.new(self))
-      ])
+  			MenuOption.new("Quit", "Quit the current game", QuitAction.new())
+      ], '>')
 
   end
 
   def active_player()
-  	return players[turn]
+  	return @players[@turn]
   end
 
   def play_turn()

@@ -16,11 +16,11 @@ class Player
       print game_menu.prompt
   end
 
-  def move_piece(from,to)
+  def movePiece(from,to)
     to.place_piece(from.piece)
   end
   
-  def remove_piece
+  def removePiece
     @piece_count -= 1
   end
 end

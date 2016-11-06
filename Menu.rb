@@ -3,14 +3,15 @@ require './HelpAction'
 require './QuitAction'
 
 class Menu
-  @default_options = [MenuOption.new('Help', 'help', HelpAction.new),
-                      MenuOption.new('Quit', 'quit', QuitAction.new)]
-  
-  def initialize(name, description, prompt = '>', options, prev_menu) 
+ 
+  def initialize(name, description, options, prompt='>', prev_menu=nil) 
     @name = name
     @description = description
     @prompt = prompt.strip + " "
-    @options = default_options + options
+    @default_options = [MenuOption.new('Help', 'help', HelpAction.new),
+                        MenuOption.new('Quit', 'quit', QuitAction.new)]
+
+    @options = @default_options + options
   end
 
   def display

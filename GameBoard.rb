@@ -5,27 +5,44 @@ class GameBoard
 
 	def initialize()
 		@board = []
-		@line_lookup = Hash.new
+#<<<<<<< Updated upstream
+#		@line_lookup = Hash.new
+#
+#
+#		line_0 = []
+#		line_1 = []
+#		line_2 = []
+#		line_3 = []
+#		line_4 = []
+#		line_5 = []
+#		line_6 = []
+#		line_7 = []
+#
+#		for j in 7.downto(0)
+#			line_0.push(Tile.new(0,j, nil)
+#			line_1.push(Tile.new(1,j, nil)
+#			line_2.push(Tile.new(2,j, nil)
+#			line_3.push(Tile.new(3,j, nil)
+#			line_4.push(Tile.new(4,j, nil)
+#			line_5.push(Tile.new(5,j, nil)
+#			line_6.push(Tile.new(6,j, nil)
+#			line_7.push(Tile.new(7,j, nil)
+#=======
+    @line_lookup = Hash.new
+    
+		for row in 0..8
+      row = Array.new
+      for col in 0..8
+        row << [Tile.new(row, col)]
+      end
+      @board << row 
+    end
 
-
-		line_0 = []
-		line_1 = []
-		line_2 = []
-		line_3 = []
-		line_4 = []
-		line_5 = []
-		line_6 = []
-		line_7 = []
-
-		for j in 7.downto(0)
-			line_0.push(Tile.new(0,j, nil)
-			line_1.push(Tile.new(1,j, nil)
-			line_2.push(Tile.new(2,j, nil)
-			line_3.push(Tile.new(3,j, nil)
-			line_4.push(Tile.new(4,j, nil)
-			line_5.push(Tile.new(5,j, nil)
-			line_6.push(Tile.new(6,j, nil)
-			line_7.push(Tile.new(7,j, nil)
+    #Initialize player 0
+		for i in 1..6
+			@board[0][i] = Tile.new(0,i, Piece.new(0))
+			@board[7][i] = Tile.new(7,i, Piece.new(0))
+#>>>>>>> Stashed changes
 		end
 
 		#player1
