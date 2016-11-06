@@ -5,19 +5,58 @@ class GameBoard
 
 	def initialize()
 		@board = []
-    @line_lookup = Hash.new
+		@line_lookup = Hash.new
 
-		#Initialize player 0
-		for i in 1..6
-			@board[0][i] = Tile.new(0,i, Piece.new(0))
-			@board[7][i] = Tile.new(7,i, Piece.new(0))
+
+		line_0 = []
+		line_1 = []
+		line_2 = []
+		line_3 = []
+		line_4 = []
+		line_5 = []
+		line_6 = []
+		line_7 = []
+
+		for j in 7.downto(0)
+			line_0.push(Tile.new(0,j, nil)
+			line_1.push(Tile.new(1,j, nil)
+			line_2.push(Tile.new(2,j, nil)
+			line_3.push(Tile.new(3,j, nil)
+			line_4.push(Tile.new(4,j, nil)
+			line_5.push(Tile.new(5,j, nil)
+			line_6.push(Tile.new(6,j, nil)
+			line_7.push(Tile.new(7,j, nil)
 		end
 
-		#Initialize player 1
-		for i in 1..6
-			@board[i][0] = Tile.new(i,0, Piece.new(1))
-			@board[i][7] = Tile.new(i,7, Piece.new(1))
-		end
+		#player1
+		for j in 1..6
+			line_0[j].place_piece(Piece.new(0))
+			line_7[j].place_piece(Piece.new(0))
+		end 
+
+		#player2
+		line_1[0].place_piece(Piece.new(1))
+		line_1[7].place_piece(Piece.new(1))
+		line_2[0].place_piece(Piece.new(1))
+		line_2[7].place_piece(Piece.new(1))
+		line_3[0].place_piece(Piece.new(1))
+		line_3[7].place_piece(Piece.new(1))
+		line_4[0].place_piece(Piece.new(1))
+		line_4[7].place_piece(Piece.new(1))
+		line_5[0].place_piece(Piece.new(1))
+		line_5[7].place_piece(Piece.new(1))
+		line_6[0].place_piece(Piece.new(1))
+		line_6[7].place_piece(Piece.new(1))
+
+
+		board.push(line_7)
+		board.push(line_6)
+		board.push(line_5)
+		board.push(line_4)
+		board.push(line_3)
+		board.push(line_2)
+		board.push(line_1)
+		board.push(line_0)
 	end
 
 	def pieces_in_lines(row, columnm, direction)
@@ -45,6 +84,15 @@ class GameBoard
 
 
 	def draw
+  	puts "0 1 2 3 4 5 6 7"  
+		puts '0 |' + (for j in 0..7; print(board[0][j].draw()+'|'); end).to_s[0..-4]
+		puts '1 |' + (for j in 0..7; print(board[1][j].draw()+'|'); end).to_s[0..-4]
+		puts '2 |' + (for j in 0..7; print(board[2][j].draw()+'|'); end).to_s[0..-4]
+		puts '3 |' + (for j in 0..7; print(board[3][j].draw()+'|'); end).to_s[0..-4]
+		puts '4 |' + (for j in 0..7; print(board[4][j].draw()+'|'); end).to_s[0..-4]
+		puts '5 |' + (for j in 0..7; print(board[5][j].draw()+'|'); end).to_s[0..-4]
+		puts '6 |' + (for j in 0..7; print(board[6][j].draw()+'|'); end).to_s[0..-4]
+		puts '7 |' + (for j in 0..7; print(board[7][j].draw()+'|'); end).to_s[0..-4]
 	end
 
 	private 

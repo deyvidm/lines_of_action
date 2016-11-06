@@ -44,7 +44,11 @@ class Tile
 
 	end
 
-	def draw(screen)
+	def draw()
+		if has.piece()
+			@space.draw()
+		else
+			return '_'
 	end
 
 	private
