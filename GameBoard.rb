@@ -4,46 +4,40 @@ require './Piece'
 class GameBoard
 
 	def initialize()
-		@board = []
-#<<<<<<< Updated upstream
-#		@line_lookup = Hash.new
-#
-#
-#		line_0 = []
-#		line_1 = []
-#		line_2 = []
-#		line_3 = []
-#		line_4 = []
-#		line_5 = []
-#		line_6 = []
-#		line_7 = []
-#
-#		for j in 7.downto(0)
-#			line_0.push(Tile.new(0,j, nil)
-#			line_1.push(Tile.new(1,j, nil)
-#			line_2.push(Tile.new(2,j, nil)
-#			line_3.push(Tile.new(3,j, nil)
-#			line_4.push(Tile.new(4,j, nil)
-#			line_5.push(Tile.new(5,j, nil)
-#			line_6.push(Tile.new(6,j, nil)
-#			line_7.push(Tile.new(7,j, nil)
-#=======
-    @line_lookup = Hash.new
-    
-		for row in 0..8
-      row = Array.new
-      for col in 0..8
-        row << [Tile.new(row, col)]
-      end
-      @board << row 
+		line_0 = []
+		line_1 = []
+		line_2 = []
+		line_3 = []
+		line_4 = []
+		line_5 = []
+		line_6 = []
+		line_7 = []
+
+		for j in 7.downto(0)
+			line_0.push(Tile.new(0,j, nil))
+			line_1.push(Tile.new(1,j, nil))
+			line_2.push(Tile.new(2,j, nil))
+			line_3.push(Tile.new(3,j, nil))
+			line_4.push(Tile.new(4,j, nil))
+			line_5.push(Tile.new(5,j, nil))
+			line_6.push(Tile.new(6,j, nil))
+			line_7.push(Tile.new(7,j, nil))
     end
+    @line_lookup = Hash.new
+      
+#		for row in 0..8
+#      row = Array.new
+#      for col in 0..8
+#        row << [Tile.new(row, col)]
+#      end
+#      @board << row 
+#    end
 
     #Initialize player 0
-		for i in 1..6
-			@board[0][i] = Tile.new(0,i, Piece.new(0))
-			@board[7][i] = Tile.new(7,i, Piece.new(0))
-#>>>>>>> Stashed changes
-		end
+#		for i in 1..6
+#			@board[0][i] = Tile.new(0,i, Piece.new(0))
+#			@board[7][i] = Tile.new(7,i, Piece.new(0))
+#		end
 
 		#player1
 		for j in 1..6
@@ -65,15 +59,15 @@ class GameBoard
 		line_6[0].place_piece(Piece.new(1))
 		line_6[7].place_piece(Piece.new(1))
 
-
-		board.push(line_7)
-		board.push(line_6)
-		board.push(line_5)
-		board.push(line_4)
-		board.push(line_3)
-		board.push(line_2)
-		board.push(line_1)
-		board.push(line_0)
+    @board = Array.new
+		@board.push(line_7)
+		@board.push(line_6)
+		@board.push(line_5)
+		@board.push(line_4)
+		@board.push(line_3)
+		@board.push(line_2)
+		@board.push(line_1)
+		@board.push(line_0)
 	end
 
 	def pieces_in_lines(row, columnm, direction)
@@ -97,8 +91,6 @@ class GameBoard
 			@line_lookup[:left_diagonal] = left_diagonal_lines_count()
 			@line_lookup[:right_diagonal] = right_diagonal_lines_count()
 	end
-
-
 
 	def draw
   	puts "0 1 2 3 4 5 6 7"  
