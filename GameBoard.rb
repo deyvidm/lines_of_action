@@ -101,7 +101,7 @@ class GameBoard
 	end
 
 	def validate_move(from, to, direction)
-		inGame(to) && @turn != to.piece().team && jumps_enemy_piece(from, to, direction)
+		inGame(to) && from.piece().team != to.piece().team && jumps_enemy_piece(from, to, direction)
 	end
   
   def get_player_piece_index(team) 
