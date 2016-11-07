@@ -6,8 +6,9 @@ class Menu
     @name = name
     @description = description
     @prompt = prompt.strip + " "
-    @default_options = [MenuOption.new('Exit the program immediately', 'quit', 0),
-                        MenuOption.new('Help with how to play the game', 'help',1)]
+    @default_options = 
+                [MenuOption.new('Exit the program immediately', 'quit', :quit),
+                  MenuOption.new('Help with how to play the game', 'help',:help)]
 
     @options = @default_options + options
   end

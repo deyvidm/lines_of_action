@@ -17,6 +17,6 @@ class MenuOption
   end
   
   def code
-    return code
+    return @option_code
   end
 end
