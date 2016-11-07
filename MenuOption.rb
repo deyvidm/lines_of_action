@@ -7,8 +7,8 @@ class MenuOption
   end
 
   def display
-    puts @command
-    puts "-" * @command.length
+    print @command
+    print " ---- " 
     puts @name
   end
 

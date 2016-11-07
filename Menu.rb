@@ -14,11 +14,16 @@ class Menu
   end
 
   def display
-    puts @name
-    puts "-" * @name.length
-    puts @description
+    print " -~≈ " 
+    print @name
+    puts " ≈~- " 
+    puts "-" * (@name.length + 10)
+    puts ' '
 
-    @options.each {|o| o.display}
+    @options.each do |o| 
+      o.display
+      puts " "
+    end
   end  
   
   def prompt
