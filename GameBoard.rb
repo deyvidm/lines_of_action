@@ -124,7 +124,7 @@ class GameBoard
 		lines_count.push(ib[5][0]+ib[6][1]+ib[7][2])
 		lines_count.push(ib[6][0]+ib[7][1])
 		lines_count.push(ib[7][0])
-		libes_count
+		lines_count
 	end
 
 	def right_diagonal_lines_count()
@@ -145,7 +145,7 @@ class GameBoard
 		lines_count.push(ib[5][7]+ib[6][6]+ib[7][5])
 		lines_count.push(ib[6][7]+ib[7][6])
 		lines_count.push(ib[7][7])
-		libes_count
+		lines_count
 	end
 
 
