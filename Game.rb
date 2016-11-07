@@ -31,9 +31,7 @@ class Game
         when :help
             puts "help menu"
         when :move
-            if args.length < 3
-              break
-            end
+            
             row_index, column_index, direction = args
             target = @board.target_tile(row_index, column_index, direction)
             if target && validate_move(@board[row_index][column_index], target, direction) 
