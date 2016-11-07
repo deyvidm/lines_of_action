@@ -58,7 +58,7 @@ class GameBoard
 
 	def pieces_in_line(row, columnm, direction)
 		orientation = direction_to_orientation(direction)
-		lines_array = line_lookup[orientation]
+		lines_array = @line_lookup[orientation]
 		case orientation
 		when :horizontal	
 			lines_array[column]
