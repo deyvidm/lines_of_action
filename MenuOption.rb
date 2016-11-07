@@ -13,7 +13,6 @@ class MenuOption
   end
 
   def matches(user_input)
-    puts '| ' + user_input + ' -- ' + @command 
     return user_input == @command
   end
   
