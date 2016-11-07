@@ -101,7 +101,7 @@ class GameBoard
 		@board[row][column]
 	end
 
-	def validate_move(from, to, direction)
+	def validate_move(from, to, direction, turn)
 		puts inGame(to)
 		puts from
 		puts from.has_piece()
@@ -109,7 +109,15 @@ class GameBoard
 		puts to.get_row()
 		puts to.get_column()
 		puts jumps_enemy_piece(from, to, direction)
-		inGame(to) && (from.has_piece() != to.has_piece()) && jumps_enemy_piece(from, to, direction).!
+		if inGame(to) && jumps_enemy_piece(from, to, direction).!
+			if from.has_piece()
+				if from.piece().get_team() == turn
+					if to.has_piece() != true || to.has_piece == true && to.piece().get_team != turn
+						true
+					end
+				end
+			end
+		end
 	end
 
 
