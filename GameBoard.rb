@@ -94,19 +94,14 @@ class GameBoard
 	def target_tile(row, column, direction)
 		steps = pieces_in_line(row, column, direction)
 		integer_movement = direction_to_integers(direction)
-		puts integer_movement.inspect
-		puts steps
 		i = integer_movement[0] * steps
 		j = integer_movement[1] * steps
-    puts integer_movement[1]
-    puts steps
 		row = row + i
 		column = column + j
 		@board[row][column]
 	end
 
 	def validate_move(from, to, direction)
-		puts from, to, direction
 		inGame(to) && from.has_piece() != to.has_piece() && jumps_enemy_piece(from, to, direction)
 	end
 
@@ -129,7 +124,6 @@ class GameBoard
 		lines_count.push(ib[5][0]+ib[6][1]+ib[7][2])
 		lines_count.push(ib[6][0]+ib[7][1])
 		lines_count.push(ib[7][0])
-		puts lines_count.inspect
 		lines_count
 	end
 
@@ -151,7 +145,6 @@ class GameBoard
 		lines_count.push(ib[5][7]+ib[6][6]+ib[7][5])
 		lines_count.push(ib[6][7]+ib[7][6])
 		lines_count.push(ib[7][7])
-		puts lines_count.inspect
 		lines_count
 	end
 
