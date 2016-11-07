@@ -246,7 +246,7 @@ class GameBoard
   	end
 
 	def inGame(tile)
-		if tile.get_row >= 0 && tile.get_row <=  7 && tile.get_column >= 0 && tile.get_column <= 7
+		if tile.get_row >= 0 && tile.get_row <  7 && tile.get_column >= 0 && tile.get_column < 7
 			return true
 		end
 	end
