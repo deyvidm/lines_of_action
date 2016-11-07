@@ -102,6 +102,7 @@ class GameBoard
 	end
 
 	def validate_move(from, to, direction, turn)
+<<<<<<< Updated upstream
     
     if direction.to_s.include? "south"
       if from.get_row > to.get_row
@@ -128,6 +129,14 @@ class GameBoard
 			if from.has_piece() && from.piece().get_team() == turn
 				if to.has_piece() != true || to.has_piece == true && to.piece().get_team != turn
 					return true
+=======
+		if inGame(to) && jumps_enemy_piece(from, to, direction).!
+			if from.has_piece()
+				if from.piece().get_team() == turn
+					if to.has_piece() != true || to.has_piece == true && to.piece().get_team != turn
+						true
+					end
+>>>>>>> Stashed changes
 				end
 			end
 		end
@@ -152,7 +161,7 @@ class GameBoard
 		lines_count.push(ib[5][0]+ib[6][1]+ib[7][2])
 		lines_count.push(ib[6][0]+ib[7][1])
 		lines_count.push(ib[7][0])
-		lines_count
+		lines_count.reverse
 	end
 
 	def right_diagonal_lines_count()
@@ -235,9 +244,9 @@ class GameBoard
 		when :east, :west
 			:horizontal
 		when :north_east, :south_west
-			:left_diagonal
-		when :north_west, :south_east
 			:right_diagonal
+		when :north_west, :south_east
+			:left_diagonal
 		end
 	end
 
