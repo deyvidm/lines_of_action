@@ -19,6 +19,15 @@ class Tile
 		@space.nil?.!
 	end	
 
+	def get_row()
+		@row
+	end
+
+	def get_column()
+		@column
+	end
+	
+
 	def piece()
 		@space	
 	end

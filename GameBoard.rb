@@ -106,7 +106,8 @@ class GameBoard
 	end
 
 	def validate_move(from, to, direction)
-		inGame(to) && from.piece().team != to.piece().team && jumps_enemy_piece(from, to, direction)
+		puts from, to, direction
+		inGame(to) && from.has_piece() != to.has_piece() && jumps_enemy_piece(from, to, direction)
 	end
 
 
@@ -240,8 +241,12 @@ class GameBoard
 		end
 	end
 
+	def get_tile(row, col)
+    	return @board[row][col]
+  	end
+
 	def inGame(tile)
-		if tile.row >= 0 && tile.row <=  7 && tile.column >= 0 && tile.column <= 7
+		if tile.get_row >= 0 && tile.get_row <=  7 && tile.get_column >= 0 && tile.get_column <= 7
 			return true
 		end
 	end
@@ -254,11 +259,11 @@ class GameBoard
 		test_tile = from
 		while jumps_enemy_piece == false && inGame(test_tile) && test_tile != to
 			if test_tile.has_piece()	
-				if test_tile.piece().team != from.piece().team
+				if test_tile.piece().get_team != from.piece().get_team
 					jumps_enemy_piece = true
 				end
 			end		
-			test_tile = board[test_tile.row + i][test_tile + j]
+			test_tile = @board[test_tile.get_row()+i][test_tile.get_column()+j]
 		end
 		jumps_enemy_piece
 	end
@@ -285,8 +290,6 @@ class GameBoard
     end
   end 
 
-  def get_tile(row, col)
-    return @board[row][col]
-  end
+
 
 end
