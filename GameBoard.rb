@@ -196,7 +196,7 @@ class GameBoard
 	end
 
 	def direction_to_orientation(direction)
-		case direction
+		case direction.to_sym
 		when :north, :south
 			:vertical
 		when :east, :west
@@ -209,7 +209,7 @@ class GameBoard
 	end
 
 	def direction_to_integers(direction)
-		case direction
+    case direction.to_sym
 		when :north_west
 			[-1,-1]
 		when :north
