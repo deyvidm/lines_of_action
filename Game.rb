@@ -32,9 +32,9 @@ class Game
   
   def game_over()
   	first = nil
-	  board.each do |row|
+	  @board.each do |row|
 		  index = row.index do |tile|
-			  tile.has_piece() && tile.piece().team == turn
+			  tile.has_piece() && tile.piece().team == @turn
 		  end
 
 		  if index
@@ -42,7 +42,7 @@ class Game
 			  break
 		  end
 	  end
-	  return first.connected(board) == players[turn].piece_count
+	  return first.connected(board) == @players[@turn].piece_count
   end
 
 end
