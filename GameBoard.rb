@@ -266,4 +266,17 @@ class GameBoard
 		end
 		jumps_enemy_piece
 	end
+
+	def get_player_piece_index(turn)
+		for i in 0..7
+			for j in 0..7
+				if board[i][j].has_piece()
+					if turn == board[i][j].piece().getTeam()
+						return [i,j]
+					end
+				end
+			end
+		end
+		return nil
+	end
 end
