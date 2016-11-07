@@ -102,7 +102,7 @@ class GameBoard
     puts steps
 		row = row + i
 		column = column + j
-		board[row][column]
+		@board[row][column]
 	end
 
 	def validate_move(from, to, direction)
