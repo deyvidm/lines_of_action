@@ -275,7 +275,7 @@ class GameBoard
   end 
 
   def get_tile(row, col)
-    return @board[row,col]
+    return @board[row][col]
   end
 
 end
