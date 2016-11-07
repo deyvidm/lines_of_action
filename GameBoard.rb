@@ -102,7 +102,12 @@ class GameBoard
 	end
 
 	def validate_move(from, to, direction)
-		inGame(to) && from.has_piece() != to.has_piece() && jumps_enemy_piece(from, to, direction)
+		puts inGame(to)
+		puts from
+		puts from.has_piece()
+		puts to.has_piece()
+		puts jumps_enemy_piece(from, to, direction)
+		inGame(to) && (from.has_piece() != to.has_piece()) && jumps_enemy_piece(from, to, direction).!
 	end
 
 
