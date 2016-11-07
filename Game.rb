@@ -26,27 +26,29 @@ class Game
       @board.draw
       puts ''
       puts 'Player: ' + @players[@turn].name + "\nPieces: " + ['O', 'X'][@turn]
-      print @game_menu.prompt
-      code,args = @game_menu.handle_input(gets)
-      case code
-      when :quit
-        puts "Exiting game."
-        exit
-      when :help
+      while true
         print @game_menu.prompt
         code,args = @game_menu.handle_input(gets)
-      when :move
-        row_index = args[0].to_i
-        column_index = args[1].to_i
-        direction = args[2]
-        target = @board.target_tile(row_index, column_index, direction)
-        if target && @board.validate_move(@board.get_tile(row_index,column_index), target, direction.to_sym) 
-          active_player.move_piece(@board.get_tile(row_index,column_index), target)
-        else
-          puts "Invalid move."
+        case code
+        when :quit
+          puts "Exiting game."
+          exit
+        when :help
+          @game_menu.display
+        when :move
+          row_index = args[0].to_i
+          column_index = args[1].to_i
+          direction = args[2]
+          target = @board.target_tile(row_index, column_index, direction)
+          if target && @board.validate_move(@board.get_tile(row_index,column_index), target, direction.to_sym) 
+            active_player.move_piece(@board.get_tile(row_index,column_index), target)
+          else
+            puts "Invalid move."
+          end
+          break
+        else 
+          puts 'Invalid command.'
         end
-      else 
-        puts 'Invalid command.'
       end
       @turn == 1? @turn = 0 : @turn = 1
     end

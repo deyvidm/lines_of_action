@@ -22,8 +22,8 @@ class Menu
 
     @options.each do |o| 
       o.display
-      puts " "
     end
+    puts ' '
   end  
   
   def prompt
