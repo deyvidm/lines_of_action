@@ -7,7 +7,7 @@ class Piece
     print ['O', 'X'][@team]
   end
 
-  def getTeam()
+  def get_team()
   	@team
   end
 end
