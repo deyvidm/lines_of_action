@@ -103,22 +103,6 @@ class GameBoard
 	def validate_move(from, to, direction)
 		inGame(to) && from.piece().team != to.piece().team && jumps_enemy_piece(from, to, direction)
 	end
-  
-  def get_player_piece_index(team) 
-    first = nil
-    @board.each do |row|
-      index = row.index do |tile|
-        tile.has_piece() && tile.piece().team == @turn
-      end
-    
-      if index
-        first = row[index]
-        break
-      end
-    end
-    return first.connected(board) == @players[@turn].piece_count 
-  end
-	private 
 
 	def left_diagonal_lines_count()
 		lines_count = []
@@ -272,7 +256,7 @@ class GameBoard
 			for j in 0..7
 				if board[i][j].has_piece()
 					if turn == board[i][j].piece().getTeam()
-						return [i,j]
+						return board[i,j]
 					end
 				end
 			end

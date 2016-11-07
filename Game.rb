@@ -20,7 +20,7 @@ class Game
   end
 
   def start
-    while !@board.game_over(@turn)
+    while !game_over
         @game_menu.display
         print @game_menu.prompt
         code,args = @game_menu.handle_input(gets)
@@ -45,8 +45,10 @@ class Game
   
 private
   def game_over()
-  	#first = nil
-	  #@board.each do |row|
+    tile = @board.get_player_piece_index(@turn)
+    return tile.connected(@board) == @players[@turn].piece_count
+	  
+    #@board.each do |row|
 		#  index = row.index do |tile|
 		#	  tile.has_piece() && tile.piece().team == @turn
 		#  end
