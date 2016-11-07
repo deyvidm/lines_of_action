@@ -64,7 +64,7 @@ class GameBoard
 		when :horizontal	
 			lines_array[column]
 		when :vertical
-			lines_array[row]
+			lines_array[row.to_i]
 		when :left_diagonal
 			lines_array.reverse[row - column + 7]
 		when :right_diagonal
@@ -94,6 +94,8 @@ class GameBoard
 	def target_tile(row, column, direction)
 		steps = pieces_in_line(row, column, direction)
 		integer_movement = direction_to_integers(direction)
+		puts integer_movement.inspect
+		puts steps
 		i = integer_movement[0] * steps
 		j = integer_movement[1] * steps
 		row = row + i
