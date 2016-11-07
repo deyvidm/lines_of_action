@@ -42,10 +42,10 @@ class Game
           target = @board.target_tile(row_index, column_index, direction)
           if target && @board.validate_move(@board.get_tile(row_index,column_index), target, direction.to_sym, @turn) 
             active_player.move_piece(@board.get_tile(row_index,column_index), target)
+            break
           else
             puts "Invalid move."
           end
-          break
         else 
           puts 'Invalid command.'
         end
