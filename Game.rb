@@ -40,8 +40,8 @@ class Game
         column_index = args[1].to_i
         direction = args[2]
         target = @board.target_tile(row_index, column_index, direction)
-        if target && validate_move(@board[row_index][column_index], target, direction) 
-          active_player.move_piece(@board[row_index][column_index], target)
+        if target && validate_move(@board.get_tile(row_index,column_index), target, direction) 
+          active_player.move_piece(@board.get_tile(row_index,column_index), target)
         else
           puts "Invalid move."
         end
