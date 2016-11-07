@@ -26,6 +26,10 @@ class Game
       @board.draw
       puts ''
       @game_menu.display
+      
+      print 'It is Player #'
+      print @turn+1
+      print 's turn.'
       print @game_menu.prompt
       code,args = @game_menu.handle_input(gets)
       case code
