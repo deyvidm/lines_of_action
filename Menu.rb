@@ -14,9 +14,9 @@ class Menu
   end
 
   def display
-    print " -~≈ " 
+    print " -~~ " 
     print @name
-    puts " ≈~- " 
+    puts " ~~- " 
     puts "-" * (@name.length + 10)
     puts ' '
 
