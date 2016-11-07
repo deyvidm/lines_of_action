@@ -128,6 +128,7 @@ class GameBoard
 		lines_count.push(ib[5][0]+ib[6][1]+ib[7][2])
 		lines_count.push(ib[6][0]+ib[7][1])
 		lines_count.push(ib[7][0])
+		puts lines_count.inspect
 		lines_count
 	end
 
@@ -149,6 +150,7 @@ class GameBoard
 		lines_count.push(ib[5][7]+ib[6][6]+ib[7][5])
 		lines_count.push(ib[6][7]+ib[7][6])
 		lines_count.push(ib[7][7])
+		puts lines_count.inspect
 		lines_count
 	end
 
@@ -188,8 +190,9 @@ class GameBoard
 			if @board[i][j].has_piece()
 				count = count + 1
 			end
-		count
+		
 		end
+		count
 	end
 
 	def vertical_line_count(j)
@@ -198,8 +201,9 @@ class GameBoard
 			if @board[i][j].has_piece()
 				count = count + 1
 			end
-		count
+		
 		end
+		count
 	end
 
 	def direction_to_orientation(direction)
