@@ -64,7 +64,7 @@ class GameBoard
 		when :horizontal	
 			lines_array[column]
 		when :vertical
-			lines_array[row.to_i]
+			lines_array[row]
 		when :left_diagonal
 			lines_array.reverse[row - column + 7]
 		when :right_diagonal
@@ -98,6 +98,8 @@ class GameBoard
 		puts steps
 		i = integer_movement[0] * steps
 		j = integer_movement[1] * steps
+    puts integer_movement[1]
+    puts steps
 		row = row + i
 		column = column + j
 		board[row][column]

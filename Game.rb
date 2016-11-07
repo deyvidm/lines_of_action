@@ -36,7 +36,9 @@ class Game
         print @game_menu.prompt
         code,args = @game_menu.handle_input(gets)
       when :move
-        row_index, column_index, direction = args
+        row_index = args[0].to_i
+        column_index = args[1].to_i
+        direction = args[2]
         target = @board.target_tile(row_index, column_index, direction)
         if target && validate_move(@board[row_index][column_index], target, direction) 
           active_player.move_piece(@board[row_index][column_index], target)
