@@ -54,6 +54,7 @@ class GameBoard
 		@board.push(line_2)
 		@board.push(line_1)
 	 	@board.push(line_0)
+    puts @board[0][2].piece()
 	end
 
 	def pieces_in_line(row, columnm, direction)
@@ -208,7 +209,7 @@ class GameBoard
 		end
 	end
 
-	def direction_to_integers()
+	def direction_to_integers(direction)
 		case direction
 		when :north_west
 			[-1,-1]
