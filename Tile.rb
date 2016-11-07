@@ -1,3 +1,5 @@
+require './Piece'
+
 class Tile
 
 	def initialize(row, column, piece= nil)
