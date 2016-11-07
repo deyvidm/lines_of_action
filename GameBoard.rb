@@ -56,7 +56,7 @@ class GameBoard
 	 	@board.push(line_0)
 	end
 
-	def pieces_in_line(row, columnm, direction)
+	def pieces_in_line(row, column, direction)
 		orientation = direction_to_orientation(direction)
 		update_piece_counts()
 		lines_array = @line_lookup[orientation.to_sym]
