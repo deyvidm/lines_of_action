@@ -47,7 +47,7 @@ class Tile
 			visited.push(self)
 			neighbours = neighbours(board)
 			neighbours.each do |tile|
-				return 1 + tile.connected()
+				return 1 + tile.connected_rec()
 			end
 		end
 	end
@@ -70,25 +70,25 @@ class Tile
 			#north_west		
 			if @row-1 >= 0 && @column-1 >= 0
 				if @space.get_team == board.get_piece_team(@row-1,@column-1)
-					neighbours.push(board[@row-1][@column-1])
+					neighbours.push(board.get_tile(@row-1,@column-1))
 				end
 			end
 			#north
 			if @row-1 >= 0 
 				if @space.get_team == board.get_piece_team(@row-1,@column)
-					neighbours.push(board[@row-1][@column])
+					neighbours.push(board.get_tile(@row-1,@column))
 				end
 			end
 			#north_east
 			if @row-1 >= 0 && @column+1 <= 7
 				if @space.get_team == board.get_piece_team(@row-1,@column+1)
-					neighbours.push(board[@row-1][@column+1])
+					neighbours.push(board.get_tile(@row-1,@column+1))
 				end
 			end
 			#west
 			if @column-1 >= 0
 				if @space.get_team == board.get_piece_team(@row,@column-1)
-					neighbours.push(board[@row][@column-1])
+					neighbours.push(board.get_tile(@row,@column-1))
 				end
 			end
 			#east
@@ -100,19 +100,19 @@ class Tile
 			#south_west
 			if @row+1 <= 7 && @column-1 >= 0
 				if @space.get_team == board.get_piece_team(@row+1,@column-1)
-					neighbours.push(board[@row+1][@column-1])
+					neighbours.push(board.get_tile(@row+1,@column-1))
 				end
 			end
 			#south
 			if @row+1 <= 7
 				if @space.get_team == board.get_piece_team(@row+1,@column)
-					neighbours.push(board[@row+1][@column])
+					neighbours.push(board.get_tile(@row+1,@column))
 				end
 			end
 			#south_east
 			if @row+1 <= 7 && @column+1 <= 7
 				if @space.get_team == board.get_piece_team(@row+1,@column+1)
-					neighbours.push(board[@row+1][@column+1])
+					neighbours.push(board.get_tile(@row+1,@column+1))
 				end
 			end
 		end
