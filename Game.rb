@@ -21,11 +21,11 @@ class Game
 
   def start
     while !game_over
-<<<<<<< HEAD
-=======
+
       puts ''
       @board.draw
       puts ''
+      @game_menu.display
       print @game_menu.prompt
       code,args = @game_menu.handle_input(gets)
       case code
@@ -33,8 +33,7 @@ class Game
         puts "Exiting game."
         exit
       when :help
->>>>>>> 630986c000f50482caec0b1ac3210d58a123063d
-        @game_menu.display
+        
         print @game_menu.prompt
         code,args = @game_menu.handle_input(gets)
         case code
@@ -44,16 +43,19 @@ class Game
         when :help
             puts "help menu"
         when :move
-            
-            row_index, column_index, direction = args
-            target = @board.target_tile(row_index, column_index, direction)
-            if target && validate_move(@board[row_index][column_index], target, direction) 
-                active_player.move_piece(@board[row_index][column_index], target)
-            else
-                puts "Invalid move."
-            end
+          if args.length < 3
+            break
+          end
+          row_index, column_index, direction = args
+          target = @board.target_tile(row_index, column_index, direction)
+          if target && validate_move(@board[row_index][column_index], target, direction) 
+              active_player.move_piece(@board[row_index][column_index], target)
+          else
+            puts "Invalid move."
+          end
         end
         @turn == 1? @turn = 0 : @turn = 1
+      end
     end
   end
   
