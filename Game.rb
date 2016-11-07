@@ -12,7 +12,7 @@ class Game
     @board = GameBoard.new()
     @turn = 0
     @game_menu = Menu.new("Main menu", "Main menu for the lines of action game",'>',
-                          [MenuOption.new('Select a piece to move. Directions: north, south, north_east, north_west, etc.', 'move', :move)])
+                          [MenuOption.new('Select a piece to move: <row> <col> <south|north_west|etc.>', 'move', :move)])
   end
 
   def active_player()
