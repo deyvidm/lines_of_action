@@ -20,7 +20,6 @@ class Game
   end
 
   def start
-    @board.draw
     while !game_over
         @game_menu.display
         print @game_menu.prompt

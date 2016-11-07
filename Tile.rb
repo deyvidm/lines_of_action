@@ -9,17 +9,10 @@ class Tile
 	end
 
 	def place_piece(piece)
-		print @row 
-    print ", "
-    print @column
-    print " "
-    print has_piece
     if has_piece()
 			self
 		end
 		@space = piece
-    print "-->"
-    puts has_piece
 	end
 
 	def has_piece()
@@ -47,7 +40,7 @@ class Tile
 			visited.push(self)
 			neighbours = neighbours(board)
 			neighbours.each do |tile|
-				return 1 + tile.connected_rec()
+        return 1 + tile.connected_rec()
 			end
 		end
 	end
