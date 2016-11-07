@@ -54,7 +54,6 @@ class GameBoard
 		@board.push(line_2)
 		@board.push(line_1)
 	 	@board.push(line_0)
-    puts @board[0][2].piece()
 	end
 
 	def pieces_in_line(row, columnm, direction)
