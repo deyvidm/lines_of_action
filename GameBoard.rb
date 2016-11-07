@@ -62,9 +62,9 @@ class GameBoard
 		lines_array = @line_lookup[orientation.to_sym]
 		case orientation
 		when :horizontal	
-			lines_array[column]
-		when :vertical
 			lines_array[row]
+		when :vertical
+			lines_array[column]
 		when :left_diagonal
 			lines_array.reverse[row - column + 7]
 		when :right_diagonal
