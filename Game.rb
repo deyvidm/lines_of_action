@@ -21,6 +21,19 @@ class Game
 
   def start
     while !game_over
+<<<<<<< HEAD
+=======
+      puts ''
+      @board.draw
+      puts ''
+      print @game_menu.prompt
+      code,args = @game_menu.handle_input(gets)
+      case code
+      when :quit
+        puts "Exiting game."
+        exit
+      when :help
+>>>>>>> 630986c000f50482caec0b1ac3210d58a123063d
         @game_menu.display
         print @game_menu.prompt
         code,args = @game_menu.handle_input(gets)
