@@ -22,6 +22,9 @@ class Game
   def start
     @game_menu.display
     while !game_over
+      puts ''
+      @board.draw
+      puts ''
       print @game_menu.prompt
       code,args = @game_menu.handle_input(gets)
       case code
