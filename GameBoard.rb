@@ -102,8 +102,6 @@ class GameBoard
 	end
 
 	def validate_move(from, to, direction, turn)
-<<<<<<< Updated upstream
-    
     if direction.to_s.include? "south"
       if from.get_row > to.get_row
         return false
@@ -129,14 +127,6 @@ class GameBoard
 			if from.has_piece() && from.piece().get_team() == turn
 				if to.has_piece() != true || to.has_piece == true && to.piece().get_team != turn
 					return true
-=======
-		if inGame(to) && jumps_enemy_piece(from, to, direction).!
-			if from.has_piece()
-				if from.piece().get_team() == turn
-					if to.has_piece() != true || to.has_piece == true && to.piece().get_team != turn
-						true
-					end
->>>>>>> Stashed changes
 				end
 			end
 		end
