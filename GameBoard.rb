@@ -104,6 +104,12 @@ class GameBoard
 		puts '7 |' + (for j in 0..7; print(board[7][j].draw()+'|'); end).to_s[0..-4]
 	end
 
+	def validate_move(from, to, direction)
+		inGame(to) && @turn != to.piece().team && jumps_enemy_piece(from, to, direction)
+	end
+
+	
+
 	private 
 
 	def left_diagonal_lines_count()
@@ -207,5 +213,48 @@ class GameBoard
 		when :north_west, :south_east
 			:right_diagonal
 		end
+	end
+
+	def direction_to_integers()
+		case direction
+		when :north_west
+			[-1,-1]
+		when :north
+			[-1, 0]
+		when :north_east
+			[-1, 1]
+		when :west
+			[0, -1]
+		when :east
+			[0, 1]
+		when :south_west
+			[1, -1]
+		when :south
+			[1, 0]
+		when :south_east
+			[1, 1]
+	end
+
+	def inGame(tile)
+		if tile.row >= 0 && tile.row <=  7 && tile.column >= 0 && tile.column <= 7
+			return true
+		end
+	end
+
+	def jumps_enemy_piece(from, to, direction)	
+		integer_movement = direction_to_integers()
+		i = integer_movement[0]
+		j = integer_movement[1]
+		jumps_enemy_piece = false
+		test_tile = from
+		while jumps_enemy_piece == false && inGame(test_tile) && test_tile != to
+			if test_tile.has_piece()	
+				if test_tile.piece().team != from.piece().team
+					jumps_enemy_piece = true
+				end
+			end		
+			test_tile = board[test_tile.row + i][test_tile + j]
+		end
+		jumps_enemy_piece
 	end
 end
