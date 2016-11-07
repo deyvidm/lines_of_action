@@ -1,20 +1,22 @@
 class MenuOption
   
-  def initialize(name, command, action)
+  def initialize(name, command, option_code)
     @name = name
     @command = command 
-    @action = action 
+    @option_code = option_code
   end
 
-  def display() 
-    puts @name + " -- " + @command
+  def display
+    puts @command
+    puts "-" * @command.length
+    puts @name
   end
 
   def matches(user_input)
     return user_input == @command
   end
-
-  def activate_action(args)
-    return @action.activate(args)
+  
+  def code
+    return code
   end
 end

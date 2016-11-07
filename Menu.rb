@@ -1,15 +1,13 @@
 require './MenuOption'
-require './HelpAction'
-require './QuitAction'
 
 class Menu
  
-  def initialize(name, description, options, prompt='>', prev_menu=nil) 
+  def initialize(name, description, prompt='>', options=Array.new)
     @name = name
     @description = description
     @prompt = prompt.strip + " "
-    @default_options = [MenuOption.new('Help', 'help', HelpAction.new),
-                        MenuOption.new('Quit', 'quit', QuitAction.new)]
+    @default_options = [MenuOption.new('Exit the program immediately', 'quit', 0),
+                        MenuOption.new('Help with how to play the game', 'help',1)]
 
     @options = @default_options + options
   end
@@ -25,16 +23,14 @@ class Menu
   def prompt
     return @prompt
   end
-
+  
   def handle_input(user_input)
     tokens = user_input.split(' ')
     @options.each do |opt|
       if opt.matches(tokens[0])
-        code = opt.activate_action(tokens[1])
-        return code
-      else
-        return -1
+        return opt.code, tokens[1..-1]
       end
     end
+    return nil
   end
 end
