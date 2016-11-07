@@ -32,6 +32,7 @@ class Menu
   
   def handle_input(user_input)
     tokens = user_input.split(' ')
+    #puts '| ' + tokens[0] + ' |'
     @options.each do |opt|
       if opt.matches(tokens[0])
         return opt.code, tokens[1..-1]

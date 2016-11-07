@@ -24,4 +24,8 @@ class Player
   def piece_count
     return @piece_count
   end
+
+  def name 
+    return @name
+  end
 end
