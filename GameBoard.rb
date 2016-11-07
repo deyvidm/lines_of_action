@@ -25,27 +25,13 @@ class GameBoard
     end
     @line_lookup = Hash.new
       
-#		for row in 0..8
-#      row = Array.new
-#      for col in 0..8
-#        row << [Tile.new(row, col)]
-#      end
-#      @board << row 
-#    end
-
-    #Initialize player 0
-#		for i in 1..6
-#			@board[0][i] = Tile.new(0,i, Piece.new(0))
-#			@board[7][i] = Tile.new(7,i, Piece.new(0))
-#		end
-
-		#player1
+		#player0
 		for j in 1..6
 			line_0[j].place_piece(Piece.new(0))
 			line_7[j].place_piece(Piece.new(0))
 		end 
 
-		#player2
+		#player1
 		line_1[0].place_piece(Piece.new(1))
 		line_1[7].place_piece(Piece.new(1))
 		line_2[0].place_piece(Piece.new(1))
@@ -70,7 +56,7 @@ class GameBoard
 		@board.push(line_0)
 	end
 
-	def pieces_in_lines(row, columnm, direction)
+	def pieces_in_line(row, columnm, direction)
 		orientation = direction_to_orientation(direction)
 		lines_array = line_lookup[orientation]
 		case orientation
@@ -104,11 +90,19 @@ class GameBoard
 		puts '7 |' + (for j in 0..7; print(board[7][j].draw()+'|'); end).to_s[0..-4]
 	end
 
+	def target_tile(row, column, direction)
+		steps = pieces_in_line(row, column, direction)
+		integer_movement = direction_to_integers(direction)
+		i = integer_movement[0] * steps
+		j = integer_movement[1] * steps
+		row = row + i
+		column = column + j
+		board[row][column]
+	end
+
 	def validate_move(from, to, direction)
 		inGame(to) && @turn != to.piece().team && jumps_enemy_piece(from, to, direction)
 	end
-
-	
 
 	private 
 
@@ -242,7 +236,7 @@ class GameBoard
 	end
 
 	def jumps_enemy_piece(from, to, direction)	
-		integer_movement = direction_to_integers()
+		integer_movement = direction_to_integers(direction)
 		i = integer_movement[0]
 		j = integer_movement[1]
 		jumps_enemy_piece = false
