@@ -34,17 +34,17 @@ class Tile
 		if @space.nil?
 			return 0
 		else
-			visited = [7][7]
+			visited = []
 			connected_rec(board, visited)
 		end
 	end
 		
 		
 	def connected_rec(board, visited)
-		if visited.include(self)
+		if visited.include?(self)
 			return 0
 		else
-			visited[@row][@column] = self
+			visited.push(self)
 			neighbours = neighbours(board)
 			neighbours.each do |tile|
 				return 1 + tile.connected()
