@@ -58,7 +58,9 @@ class GameBoard
 
 	def pieces_in_line(row, columnm, direction)
 		orientation = direction_to_orientation(direction)
-		lines_array = @line_lookup[orientation]
+		update_piece_counts()
+		lines_array = @line_lookup[orientation.to_sym]
+		puts lines_array.inspect
 		case orientation
 		when :horizontal	
 			lines_array[column]
@@ -178,7 +180,7 @@ class GameBoard
 	def horizontal_line_count(i)
 		count = 0
 		for j in 0..7
-			if board[i][j].has_piece()
+			if @board[i][j].has_piece()
 				count = count + 1
 			end
 		count
@@ -188,7 +190,7 @@ class GameBoard
 	def vertical_line_count(j)
 		count = 0
 		for i in 0..7
-			if board[i][j].has_piece()
+			if @board[i][j].has_piece()
 				count = count + 1
 			end
 		count
