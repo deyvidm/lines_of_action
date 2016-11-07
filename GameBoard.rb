@@ -80,13 +80,14 @@ class GameBoard
 	end
 
 	def draw
-  	puts "0 1 2 3 4 5 6 7"  
+  	puts " 0 1 2 3 4 5 6 7 "  
 		for i in 0..7
 			for j in 0..7
 				print '|'
         print @board[i][j].draw
 			end
-      puts '|'
+      print '| '
+      puts i
 		end
 	end
 
@@ -256,18 +257,26 @@ class GameBoard
 		for i in 0..7
 			for j in 0..7
 				if @board[i][j].has_piece()
-          #print turn 
-          #print " -- "
-          #puts @board[i][j].piece().getTeam()
-          
-					if turn == @board[i][j].piece().getTeam()
+					if turn == get_piece_team(i,j)
 						return @board[i][j]
 					end
-        else 
-          #puts 'no piece'
 				end
 			end
 		end
 		return nil
 	end
+  
+  def get_piece_team(row, col)
+    piece = @board[row][col].piece
+    if piece
+      return piece.get_team
+    else 
+      return false
+    end
+  end 
+
+  def get_tile(row, col)
+    return @board[row,col]
+  end
+
 end

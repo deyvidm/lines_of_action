@@ -69,49 +69,49 @@ class Tile
 		if has_piece()
 			#north_west		
 			if @row-1 >= 0 && @column-1 >= 0
-				if @space.team == board[@row-1][@column-1].piece().team
+				if @space.get_team == board.get_piece_team(@row-1,@column-1)
 					neighbours.push(board[@row-1][@column-1])
 				end
 			end
 			#north
 			if @row-1 >= 0 
-				if @space.team == board[@row-1][@column].piece().team
+				if @space.get_team == board.get_piece_team(@row-1,@column)
 					neighbours.push(board[@row-1][@column])
 				end
 			end
 			#north_east
 			if @row-1 >= 0 && @column+1 <= 7
-				if @space.team == board[@row-1][@column+1].piece().team
+				if @space.get_team == board.get_piece_team(@row-1,@column+1)
 					neighbours.push(board[@row-1][@column+1])
 				end
 			end
 			#west
-			if column-1 >= 0
-				if @space.team == board[@row][@column-1].piece().team
+			if @column-1 >= 0
+				if @space.get_team == board.get_piece_team(@row,@column-1)
 					neighbours.push(board[@row][@column-1])
 				end
 			end
 			#east
-			if column+1 <= 7
-				if @space.team == board[@row][@column+1].piece().team
-					neighbours.push(board[@row][@column+1])
+			if @column+1 <= 7
+				if @space.get_team == board.get_piece_team(@row,@column+1)
+					neighbours.push(board.get_tile(@row,@column+1))
 				end
 			end
 			#south_west
-			if row+1 <= 7 && column-1 >= 0
-				if @space.team == board[@row+1][@column-1].piece().team
+			if @row+1 <= 7 && @column-1 >= 0
+				if @space.get_team == board.get_piece_team(@row+1,@column-1)
 					neighbours.push(board[@row+1][@column-1])
 				end
 			end
 			#south
-			if row+1 <= 7
-				if @space.team == board[@row+1][@column].piece().team
+			if @row+1 <= 7
+				if @space.get_team == board.get_piece_team(@row+1,@column)
 					neighbours.push(board[@row+1][@column])
 				end
 			end
 			#south_east
-			if row+1 <= 7 && column+1 <= 7
-				if @space.team == board[@row+1][@column+1].piece().team
+			if @row+1 <= 7 && @column+1 <= 7
+				if @space.get_team == board.get_piece_team(@row+1,@column+1)
 					neighbours.push(board[@row+1][@column+1])
 				end
 			end

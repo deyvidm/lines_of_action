@@ -8,7 +8,7 @@ class Piece
   end
 
   def get_team()
-  	@team
+  	return @team
   end
 end
 
