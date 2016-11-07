@@ -1,0 +1,24 @@
+To play the game, run:
+
+ruby Game.rb 
+
+
+The game must be played with 2 players (there is no AI). 
+In order to move a piece, you must provide a row, column, and direction. 
+
+Valid directions: 
+north
+north-east
+east
+south-east
+south
+south-west
+west
+north-west
+
+example move command: 
+
+move 0 5 south 
+  //will move the piece in the top-most row, 5th column, downwards 
+
+
