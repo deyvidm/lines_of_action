@@ -20,4 +20,8 @@ class Player
   def piece_captured
     @piece_count -= 1
   end
+
+  def piece_count
+    return @piece_count
+  end
 end
