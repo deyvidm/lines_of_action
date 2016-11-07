@@ -32,7 +32,7 @@ class Game
             puts "help menu"
         when :move
             row_index, column_index, direction = args
-            target = target_tile(row_index, column_index, direction)
+            target = @board.target_tile(row_index, column_index, direction)
             if target && validate_move(@board[row_index][column_index], target, direction) 
                 active_player.move_piece(@board[row_index][column_index], target)
             else
