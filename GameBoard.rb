@@ -46,14 +46,14 @@ class GameBoard
 		line_6[7].place_piece(Piece.new(1))
 
     @board = Array.new
-		@board.push(line_7)
-		@board.push(line_6)
-		@board.push(line_5)
-		@board.push(line_4)
-		@board.push(line_3)
-		@board.push(line_2)
+		@board.push(line_0)
 		@board.push(line_1)
-	 	@board.push(line_0)
+		@board.push(line_2)
+		@board.push(line_3)
+		@board.push(line_4)
+		@board.push(line_5)
+		@board.push(line_6)
+	 	@board.push(line_7)
 	end
 
 	def pieces_in_line(row, column, direction)
@@ -106,6 +106,8 @@ class GameBoard
 		puts from
 		puts from.has_piece()
 		puts to.has_piece()
+		puts to.get_row()
+		puts to.get_column()
 		puts jumps_enemy_piece(from, to, direction)
 		inGame(to) && (from.has_piece() != to.has_piece()) && jumps_enemy_piece(from, to, direction).!
 	end
