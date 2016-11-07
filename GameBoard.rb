@@ -22,8 +22,8 @@ class GameBoard
 			line_5.push(Tile.new(5,j, nil))
 			line_6.push(Tile.new(6,j, nil))
 			line_7.push(Tile.new(7,j, nil))
-    end
-    @line_lookup = Hash.new
+		end
+    	@line_lookup = Hash.new
       
 		#player0
 		for j in 1..6
@@ -103,6 +103,7 @@ class GameBoard
 	def validate_move(from, to, direction)
 		inGame(to) && from.piece().team != to.piece().team && jumps_enemy_piece(from, to, direction)
 	end
+
 
 	def left_diagonal_lines_count()
 		lines_count = []
@@ -225,7 +226,7 @@ class GameBoard
 			[1, 0]
 		when :south_east
 			[1, 1]
-    end
+		end
 	end
 
 	def inGame(tile)

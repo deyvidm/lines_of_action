@@ -27,8 +27,8 @@ class Tile
 		if @space.nil?
 			return 0
 		else
-		visited = [7][7]
-		connected_rec(board, visited)
+			visited = [7][7]
+			connected_rec(board, visited)
 		end
 	end
 		
@@ -40,18 +40,18 @@ class Tile
 			visited[@row][@column] = self
 			neighbours = neighbours(board)
 			neighbours.each do |tile|
-			return 1 + tile.connected()
+				return 1 + tile.connected()
+			end
 		end
 	end
 
-	end
 
 	def draw()
 		if has.piece()
 			@space.draw()
 		else
 			return '_'
-    end
+		end
 	end
 
 	private

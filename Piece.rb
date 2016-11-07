@@ -9,5 +9,6 @@ class Piece
 
   def getTeam()
   	@team
+  end
 end
 
