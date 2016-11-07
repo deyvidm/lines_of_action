@@ -60,7 +60,6 @@ class GameBoard
 		orientation = direction_to_orientation(direction)
 		update_piece_counts()
 		lines_array = @line_lookup[orientation.to_sym]
-		puts lines_array.inspect
 		case orientation
 		when :horizontal	
 			lines_array[column]
@@ -151,11 +150,13 @@ class GameBoard
 
 
 	def tiles_to_integer
-		integer_board = [][]
-		for i,j in 0..7
-			if board[i][j].has_piece()
-				integer_board[i][j] = 1
-			else integer_board[i][j] = 0
+		integer_board = Array.new(8){Array.new(8)}
+		for i in 0..7
+			for j in 0..7
+				if @board[i][j].has_piece()
+					integer_board[i][j] = 1
+				else integer_board[i][j] = 0
+				end
 			end
 		end
 		integer_board
