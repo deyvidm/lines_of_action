@@ -227,6 +227,7 @@ class GameBoard
 			[1, 0]
 		when :south_east
 			[1, 1]
+		end
 	end
 
 	def inGame(tile)
