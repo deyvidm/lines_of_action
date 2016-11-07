@@ -13,7 +13,7 @@ class GameBoard
 		line_6 = []
 		line_7 = []
 
-		for j in 7.downto(0)
+		for j in 0..7
 			line_0.push(Tile.new(0,j, nil))
 			line_1.push(Tile.new(1,j, nil))
 			line_2.push(Tile.new(2,j, nil))
@@ -54,6 +54,7 @@ class GameBoard
 		@board.push(line_2)
 		@board.push(line_1)
 	 	@board.push(line_0)
+    puts @board[0][2].piece()
 	end
 
 	def pieces_in_line(row, columnm, direction)
@@ -80,14 +81,13 @@ class GameBoard
 
 	def draw
   	puts "0 1 2 3 4 5 6 7"  
-		puts '0 |' + (for j in 0..7; print(board[0][j].draw()+'|'); end).to_s[0..-4]
-		puts '1 |' + (for j in 0..7; print(board[1][j].draw()+'|'); end).to_s[0..-4]
-		puts '2 |' + (for j in 0..7; print(board[2][j].draw()+'|'); end).to_s[0..-4]
-		puts '3 |' + (for j in 0..7; print(board[3][j].draw()+'|'); end).to_s[0..-4]
-		puts '4 |' + (for j in 0..7; print(board[4][j].draw()+'|'); end).to_s[0..-4]
-		puts '5 |' + (for j in 0..7; print(board[5][j].draw()+'|'); end).to_s[0..-4]
-		puts '6 |' + (for j in 0..7; print(board[6][j].draw()+'|'); end).to_s[0..-4]
-		puts '7 |' + (for j in 0..7; print(board[7][j].draw()+'|'); end).to_s[0..-4]
+		for i in 0..7
+			for j in 0..7
+				print '|'
+        print @board[i][j].draw
+			end
+      puts '|'
+		end
 	end
 
 	def target_tile(row, column, direction)
@@ -255,10 +255,16 @@ class GameBoard
 	def get_player_piece_index(turn)
 		for i in 0..7
 			for j in 0..7
-				if board[i][j].has_piece()
-					if turn == board[i][j].piece().getTeam()
-						return board[i,j]
+				if @board[i][j].has_piece()
+          #print turn 
+          #print " -- "
+          #puts @board[i][j].piece().getTeam()
+          
+					if turn == @board[i][j].piece().getTeam()
+						return @board[i][j]
 					end
+        else 
+          #puts 'no piece'
 				end
 			end
 		end

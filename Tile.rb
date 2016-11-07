@@ -9,10 +9,17 @@ class Tile
 	end
 
 	def place_piece(piece)
-		if has_piece()
+		print @row 
+    print ", "
+    print @column
+    print " "
+    print has_piece
+    if has_piece()
 			self
 		end
-		@piece = piece
+		@space = piece
+    print "-->"
+    puts has_piece
 	end
 
 	def has_piece()
@@ -47,7 +54,7 @@ class Tile
 
 
 	def draw()
-		if has.piece()
+		if has_piece()
 			@space.draw()
 		else
 			return '_'

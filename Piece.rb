@@ -4,7 +4,7 @@ class Piece
   end
 
   def draw
-    puts ['O', 'X'][@team]
+    print ['O', 'X'][@team]
   end
 
   def getTeam()
