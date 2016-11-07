@@ -26,7 +26,11 @@ class Tile
 	def get_column()
 		@column
 	end
-	
+
+	def remove_piece()
+		@space = nil
+	end
+
 
 	def piece()
 		@space	

@@ -15,6 +15,7 @@ class Player
 
   def move_piece(from,to)
     to.place_piece(from.piece)
+    from.remove_piece()
   end
   
   def piece_captured
