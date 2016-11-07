@@ -53,7 +53,7 @@ class GameBoard
 		@board.push(line_3)
 		@board.push(line_2)
 		@board.push(line_1)
-		@board.push(line_0)
+	 	@board.push(line_0)
 	end
 
 	def pieces_in_line(row, columnm, direction)
@@ -103,7 +103,21 @@ class GameBoard
 	def validate_move(from, to, direction)
 		inGame(to) && @turn != to.piece().team && jumps_enemy_piece(from, to, direction)
 	end
-
+  
+  def get_player_piece_index(team) 
+    first = nil
+    @board.each do |row|
+      index = row.index do |tile|
+        tile.has_piece() && tile.piece().team == @turn
+      end
+    
+      if index
+        first = row[index]
+        break
+      end
+    end
+    return first.connected(board) == @players[@turn].piece_count 
+  end
 	private 
 
 	def left_diagonal_lines_count()
@@ -227,7 +241,7 @@ class GameBoard
 			[1, 0]
 		when :south_east
 			[1, 1]
-		end
+    end
 	end
 
 	def inGame(tile)
